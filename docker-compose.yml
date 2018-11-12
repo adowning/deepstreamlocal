@@ -8,9 +8,9 @@ services:
         volumes:
             - ./conf:/usr/local/deepstream/conf
             - ./var:/usr/local/deepstream/var
-        # depends_on:
-        #     - redis
-        #     - rethinkdb
+        depends_on:
+            - redis
+            - rethinkdb
     # deepstream-search-provider:
     #     # build: "../deepstream.io-provider-search-rethinkdb/1.1.1"
     #     image: deepstreamio/deepstream.io-provider-search-rethinkdb
@@ -18,16 +18,16 @@ services:
     #         - DEEPSTREAM_HOST=deepstream
     #         - DEEPSTREAM_PORT=6021
     #         - RETHINKDB_HOST=rethinkdb
-        # depends_on:
-        #     - deepstream
-    # redis:
-    #     image: redis:alpine
-    #     ports:
-    #         - "6379:6379"
-    # rethinkdb:
-    #     image: rethinkdb
-    #     ports:
-    #         - "28015:28015"
-    #         - "8080:8080"
-    #     volumes:
-    #         - ./rethinkdb_data:/data/rethinkdb_data
+    #     depends_on:
+    #         - deepstream
+    redis:
+        image: redis:alpine
+        ports:
+            - "6379:6379"
+    rethinkdb:
+        image: rethinkdb
+        ports:
+            - "28015:28015"
+            - "8080:8080"
+        volumes:
+            - ./rethinkdb_data:/data/rethinkdb_data

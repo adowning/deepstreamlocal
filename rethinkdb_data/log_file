@@ -1,0 +1,20 @@
+2018-11-12T09:39:41.519681862 0.024011s notice: Recursively removing directory /data/rethinkdb_data/tmp
+2018-11-12T09:39:41.532085800 0.036422s notice: Initializing directory /data/rethinkdb_data
+2018-11-12T09:39:41.532179824 0.036508s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/data/rethinkdb_data' did not already exist or is empty.)
+2018-11-12T09:39:41.532203126 0.036531s notice: Running rethinkdb 2.3.6~0jessie (GCC 4.9.2)...
+2018-11-12T09:39:41.536335340 0.040665s notice: Running on Linux 4.15.0-38-generic x86_64
+2018-11-12T09:39:41.536377133 0.040705s notice: Loading data from directory /data/rethinkdb_data
+2018-11-12T09:39:41.652031537 0.156362s info: Automatically using cache size of 1708 MB
+2018-11-12T09:39:41.653460359 0.157788s notice: Listening for intracluster connections on port 29015
+2018-11-12T09:39:41.690346646 0.194675s notice: Listening for client driver connections on port 28015
+2018-11-12T09:39:41.690521187 0.194849s notice: Listening for administrative HTTP connections on port 8080
+2018-11-12T09:39:41.691413807 0.195742s notice: Listening on cluster addresses: 127.0.0.1, 172.31.0.2
+2018-11-12T09:39:41.691983504 0.196312s notice: Listening on driver addresses: 127.0.0.1, 172.31.0.2
+2018-11-12T09:39:41.692607939 0.196936s notice: Listening on http addresses: 127.0.0.1, 172.31.0.2
+2018-11-12T09:39:41.692627395 0.196955s notice: Server ready, "02f7e42e44e9_mbv" ecf9082e-af3e-4f53-ad3f-1db60f418aba
+2018-11-12T10:11:41.659583195 1920.163913s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2018-11-12T10:19:01.882917925 2360.387246s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2018-11-12T10:19:01.883710276 2360.388038s notice: Shutting down client connections...
+2018-11-12T10:19:01.883920597 2360.388249s notice: All client connections closed.
+2018-11-12T10:19:01.883923001 2360.388251s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2018-11-12T10:19:01.889317401 2360.393645s notice: Storage engine shut down.

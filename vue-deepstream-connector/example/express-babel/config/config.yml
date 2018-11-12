@@ -1,0 +1,72 @@
+showLogo: true
+logLevel: INFO
+sslKey: null
+sslCert: null
+sslCa: null
+connectionEndpoints:
+  websocket:
+    type: default
+    options:
+        port: 6020
+        host: 0.0.0.0
+        urlPath: /faas
+        healthCheckPath: /hc
+        heartbeatInterval: 30000
+        outgoingBufferTimeout: 0
+        unauthenticatedClientTimeout: 180000
+        maxAuthAttempts: 3
+        logInvalidAuthData: false
+        maxMessageSize: 1048576
+  http:
+    type: default
+    options:
+      # port for the http server
+      port: 8080
+      # host for the http server
+      host: 0.0.0.0
+      # allow 'authData' parameter in POST requests, if disabled only token and OPEN auth is
+      # possible
+      allowAuthData: true
+      # enable the authentication endpoint for requesting tokens/userData.
+      # note: a custom authentication handler is required for token generation
+      enableAuthEndpoint: false
+      # path for authentication requests
+      authPath: /auth
+      # path for POST requests
+      postPath: /
+      # path for GET requests
+      getPath: /
+      # url path for http health-checks, GET requests to this path will return 200 if deepstream is alive
+      healthCheckPath: /health-check
+
+      # -- CORS --
+      # if disabled, only requests with an 'Origin' header matching one specified under 'origins'
+      # below will be permitted and the 'Access-Control-Allow-Credentials' response header will be
+      # enabled
+      allowAllOrigins: true
+      # a list of allowed origins
+      origins:
+        - 'http://localhost'
+
+#
+
+auth:
+  type: none
+
+permission:
+  # Only config or custom permissionHandler at the moment
+  type: config
+  options:
+    # Path to the permissionFile. Can be json, js or yml
+    path: ./permissions.yml
+    # Amount of times nested cross-references will be loaded. Avoids endless loops
+    maxRuleIterations: 3
+    # PermissionResults are cached to increase performance. Lower number means more loading
+    cacheEvacuationInterval: 60000
+rpcAckTimeout: 1000
+rpcTimeout: 10000
+cacheRetrievalTimeout: 1000
+storageRetrievalTimeout: 2000
+dependencyInitialisationTimeout: 2000
+listenResponseTimeout: 500
+broadcastTimeout: 0

@@ -1,0 +1,47 @@
+# General
+serverName: UUID # Each server within a cluster needs a unique name. Set to UUID to have deepstream autogenerate a unique id
+showLogo: true # Show the deepstream logo on startup (highly recommended)
+logLevel: INFO # Log messages with this level and above. Valid levels are DEBUG, INFO, WARN, ERROR, OFF
+webServerEnabled: true # accept incoming HTTP long-polling and websocket connections
+tcpServerEnabled: true # accept incoming TCP connections
+port: 6020 # port for the HTTP/websocket server
+host: 0.0.0.0 # host for the HTTP/websocket server
+tcpPort: 6021 # port for the TCP server
+tcpHost: 0.0.0.0 # host for the TCP server
+urlPath: /deepstream # 
+sslKey: null
+sslCert: null
+sslCa: null
+plugins:
+
+storageExclusion: null # a RegExp that matches recordNames. If it matches, the record's data won't be stored in the db
+
+unauthenticatedClientTimeout: 180000 # amount of time a connection can remain open while not being logged in
+maxAuthAttempts: 3 # invalid login attempts before the connection is cut
+logInvalidAuthData: true # if true, the logs will contain the cleartext username / password of invalid login attempts
+maxMessageSize: 1048576 # maximum allowed size of an individual message in bytes
+
+auth:
+
+   type: file
+   options:
+     path: ./users.yml # Path to the user file. Can be json, js or yml
+     #hash: 'md5' # the name of a HMAC digest algorithm
+     iterations: 100 # the number of times the algorithm should be applied
+     keyLength: 32 # the length of the resulting key
+
+permission:
+  type: config # Only config or custom permissionHandler at the moment
+  options:
+    path: ./permissions.yml # Path to the permissionFile. Can be json, js or yml
+    maxRuleIterations: 3 # Amount of times nested cross-references will be loaded. Avoids endless loops
+    cacheEvacuationInterval: 60000 # PermissionResults are cached to increase performance. Lower number means more loading
+
+# Timeouts (in milliseconds)
+rpcProviderQueryTimeout: 1000
+rpcProviderCacheTime: 60000
+rpcAckTimeout: 1000
+rpcTimeout: 10000
+cacheRetrievalTimeout: 1000
+storageRetrievalTimeout: 2000
+dependencyInitialisationTimeout: 2000
